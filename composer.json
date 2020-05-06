@@ -55,10 +55,12 @@
     "prefer-stable": true,
     "scripts": {
         "test": "phpunit",
+        "phpstan": "phpstan analyze",
         "watch": "phpunit-watcher watch",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "[ ! -e vendor/barryvdh/laravel-ide-helper ] || (./artisan config:clear && ./artisan ide-helper:generate)"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
