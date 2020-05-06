@@ -16,13 +16,18 @@
         "laravel/tinker": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.7",
         "facade/ignition": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "phpstan/phpstan": "^0.12.23",
+        "phpunit/phpunit": "^8.5",
+        "spatie/phpunit-watcher": "^1.22"
     },
     "config": {
+        "process-timeout": 0,
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
@@ -49,9 +54,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "test": "phpunit",
+        "phpstan": "phpstan analyze",
+        "watch": "phpunit-watcher watch",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "[ ! -e vendor/barryvdh/laravel-ide-helper ] || (./artisan config:clear && ./artisan ide-helper:generate)"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
