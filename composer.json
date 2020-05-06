@@ -27,6 +27,7 @@
         "spatie/phpunit-watcher": "^1.22"
     },
     "config": {
+        "process-timeout": 0,
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
@@ -53,6 +54,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "test": "phpunit",
+        "watch": "phpunit-watcher watch",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
