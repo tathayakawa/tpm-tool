@@ -1,0 +1,39 @@
+{
+  "files.watcherExclude": {
+    "bootstrap/cache": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/vendor/**": true
+  },
+  "css.validate": false,
+  "[css]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "scss.validate": false,
+  "[scss]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "postcss.validate": false,
+  "[postcss]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "stylelint.validate": ["css", "scss", "postcss"],
+  "intelephense.environment.phpVersion": "7.4.0",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "php.memoryLimit": "512M",
+  "php-cs-fixer.allowRisky": false,
+  "php-cs-fixer.lastDownload": 0,
+  "php-cs-fixer.onsave": true,
+  "php.suggest.basic": false,
+  "php.validate.enable": false
+}
