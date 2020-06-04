@@ -19,5 +19,17 @@
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "post-commit": "run-if-changed",
+            "post-checkout": "run-if-changed",
+            "post-merge": "run-if-changed",
+            "post-rewrite": "run-if-changed"
+        }
+    },
+    "run-if-changed": {
+        "package-lock.json": "npm install --prefer-offline --no-audit",
+        "composer.lock": "composer install"
     }
 }
