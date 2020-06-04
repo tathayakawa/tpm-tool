@@ -10,12 +10,26 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@hkdobrev/run-if-changed": "^0.3.1",
         "axios": "^0.19",
         "cross-env": "^7.0",
+        "husky": "^4.2.5",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "post-commit": "run-if-changed",
+            "post-checkout": "run-if-changed",
+            "post-merge": "run-if-changed",
+            "post-rewrite": "run-if-changed"
+        }
+    },
+    "run-if-changed": {
+        "package-lock.json": "npm install --prefer-offline --no-audit",
+        "composer.lock": "composer install"
     }
 }
