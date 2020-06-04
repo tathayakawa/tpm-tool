@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.3",
         "barryvdh/laravel-ide-helper": "^2.7",
         "facade/ignition": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -58,6 +59,7 @@
         "phpstan": "phpstan analyze",
         "watch": "phpunit-watcher watch",
         "post-autoload-dump": [
+            "chmod -R ugo+w storage bootstrap/cache",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "[ ! -e vendor/barryvdh/laravel-ide-helper ] || (./artisan config:clear && ./artisan ide-helper:generate)"
