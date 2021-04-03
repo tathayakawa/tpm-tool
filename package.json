@@ -2,7 +2,7 @@
     "name": "laravel",
     "private": true,
     "scripts": {
-        "prepare": "husky install",
+        "prepare": "husky install 2>/dev/null || true",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
