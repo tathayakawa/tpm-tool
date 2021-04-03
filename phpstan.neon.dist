@@ -1,11 +1,15 @@
 parameters:
-  level: 7
+  level: 5
   paths:
     - app
     - tests
-  autoload_files:
+  scanFiles:
     - _ide_helper.php
+
   excludes_analyse:
+    - app/Http/Middleware/TrustProxies.php
+    - app/Providers/RouteServiceProvider.php
+    - app/Http/Middleware/Authenticate.php
   ignoreErrors:
   reportUnmatchedIgnoredErrors: false
   checkMissingIterableValueType: false
