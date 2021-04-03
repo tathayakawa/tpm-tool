@@ -2,6 +2,7 @@
     "name": "laravel",
     "private": true,
     "scripts": {
+        "prepare": "husky install",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
