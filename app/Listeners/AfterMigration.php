@@ -17,7 +17,13 @@ class AfterMigration
 
     public function handle(CommandFinished $event): void
     {
-        if ('migrate' !== $event->command) {
+        if (true !== in_array($event->command, [
+            'migrate',
+            'migrate:fresh',
+            'migrate:refresh',
+            'migrate:reset',
+            'migrate:rollback',
+        ])) {
             return;
         }
         if ($this->app->runningUnitTests()) {
@@ -29,6 +35,10 @@ class AfterMigration
         if ($this->app->isProduction()) {
             return;
         }
+        if (true !== array_key_exists('command.ide-helper.models', $this->app->getBindings())) {
+            return;
+        }
+
         Artisan::call('ide-helper:models -N');
     }
 }
