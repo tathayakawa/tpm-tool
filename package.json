@@ -1,5 +1,5 @@
 {
-    "name": "Laravel",
+    "name": "laravel",
     "private": true,
     "scripts": {
         "dev": "npm run development",
