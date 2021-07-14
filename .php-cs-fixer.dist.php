@@ -1,5 +1,5 @@
 <?php
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR1' => true,
         '@PSR2' => true,
@@ -10,5 +10,3 @@ return PhpCsFixer\Config::create()
         ->in(__DIR__.'/tests')
     )
 ;
-
-/* vim:set ft=php : */
