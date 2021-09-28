@@ -1,5 +1,5 @@
 parameters:
-  level: 5
+  level: 6
   paths:
     - app
     - tests
@@ -11,5 +11,10 @@ parameters:
     - app/Providers/RouteServiceProvider.php
     - app/Http/Middleware/Authenticate.php
   ignoreErrors:
+    -
+      message: '#has no return typehint specified#'
+      paths:
+        - tests
+        - app/Models
   reportUnmatchedIgnoredErrors: false
   checkMissingIterableValueType: false
