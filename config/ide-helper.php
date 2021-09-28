@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'write_eloquent_model_mixins' => true,
+    'write_eloquent_model_mixins' => false,
 
     /*
     |--------------------------------------------------------------------------
