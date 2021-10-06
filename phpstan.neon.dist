@@ -1,4 +1,6 @@
 parameters:
+  mixinExcludeClasses:
+    - Eloquent
   level: 6
   paths:
     - app
