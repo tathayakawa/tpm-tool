@@ -11,7 +11,7 @@
         "prod": "npm run production",
         "production": "mix --production",
         "fix": "run-p fix:*",
-        "fix:php": "php-cs-fixer fix  --config ./.php-cs-fixer.dist.php --path-mode=intersection --",
+        "fix:php": "php-cs-fixer fix --config ./.php-cs-fixer.dist.php --path-mode=intersection --",
         "fix:js": "prettier --write '**/*.js'",
         "fix:blade": "blade-formatter --w resources/views/**/*.blade.php --wrap 9999 -i 2"
     },
