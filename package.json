@@ -9,31 +9,44 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "fix": "run-p fix:*",
+        "fix:php": "php-cs-fixer fix  --config ./.php-cs-fixer.dist.php --path-mode=intersection --",
+        "fix:js": "prettier --write '**/*.js'",
+        "fix:blade": "blade-formatter --w resources/views/**/*.blade.php --wrap 9999 -i 2"
     },
     "devDependencies": {
         "@hkdobrev/run-if-changed": "^0.3.1",
         "axios": "^0.21",
-        "cross-env": "^7.0",
+        "blade-formatter": "^1.13.0",
         "husky": "^7.0",
         "laravel-mix": "^6.0.6",
+        "lint-staged": "^11.2.6",
         "lodash": "^4.17.19",
+        "npm-run-all": "^4.1.5",
         "postcss": "^8.1.14",
+        "prettier": "^2.4.1",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.35.1",
         "sass-loader": "^12.1.0"
     },
     "husky": {
         "hooks": {
+            "pre-commit": "lint-staged",
             "post-commit": "run-if-changed",
             "post-checkout": "run-if-changed",
             "post-merge": "run-if-changed",
             "post-rewrite": "run-if-changed"
         }
     },
+    "lint-staged": {
+        "app/**/*.php": "npm run fix:php",
+        "tests/**/*.php": "npm run fix:php",
+        "resources/views/**/*.blade.php": "blade-formatter --w --wrap 9999 -i 2"
+    },
     "run-if-changed": {
-        "**/*": "php artisan optimize:clear",
         "package-lock.json": "npm install --prefer-offline --no-audit",
-        "composer.lock": "composer install"
+        "composer.lock": "composer install",
+        "resources/@(css|js)/**.*": "npm run dev"
     }
 }
