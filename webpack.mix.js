@@ -16,3 +16,9 @@ mix.js('resources/js/app.js', 'public/js')
         //
     ])
     .sourceMaps(false, 'source-map');
+
+mix.browserSync({
+    port: process.env['PORT_BROWSERSYNC'] || 3000,
+    proxy: 'localhost:8080',
+    ui: false,
+});
