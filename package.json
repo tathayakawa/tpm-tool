@@ -11,6 +11,7 @@
         "prod": "npm run production",
         "production": "mix --production",
         "fix": "run-p fix:*",
+        "fix:css": "stylelint --fix 'resources/css/**/*'",
         "fix:php": "php-cs-fixer fix --config ./.php-cs-fixer.dist.php --path-mode=intersection --",
         "fix:js": "prettier --write '**/*.js'",
         "fix:blade": "blade-formatter --w resources/views/**/*.blade.php --wrap 9999 -i 2"
@@ -28,20 +29,19 @@
         "prettier": "^2.4.1",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.35.1",
-        "sass-loader": "^12.1.0"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged",
-            "post-commit": "run-if-changed",
-            "post-checkout": "run-if-changed",
-            "post-merge": "run-if-changed",
-            "post-rewrite": "run-if-changed"
-        }
+        "sass-loader": "^12.1.0",
+        "stylelint": "^14.1.0",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-recommended-scss": "^5.0.1",
+        "stylelint-config-standard": "^24.0.0",
+        "stylelint-order": "^5.0.0",
+        "stylelint-prettier": "^2.0.0",
+        "stylelint-scss": "^4.0.0"
     },
     "lint-staged": {
         "app/**/*.php": "npm run fix:php",
         "tests/**/*.php": "npm run fix:php",
+        "resources/css/**/*.scss": "stylelint --fix",
         "resources/views/**/*.blade.php": "blade-formatter --w --wrap 9999 -i 2"
     },
     "run-if-changed": {
