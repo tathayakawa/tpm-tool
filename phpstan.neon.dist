@@ -8,6 +8,7 @@ parameters:
   scanFiles:
     - _ide_helper.php
   excludes_analyse:
+    - vendor
     - app/Http/Middleware/TrustProxies.php
     - app/Providers/RouteServiceProvider.php
     - app/Http/Middleware/Authenticate.php
