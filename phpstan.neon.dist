@@ -7,7 +7,7 @@ parameters:
     - tests
   scanFiles:
     - _ide_helper.php
-  excludes_analyse:
+  excludePaths:
     - vendor
     - app/Http/Middleware/TrustProxies.php
     - app/Providers/RouteServiceProvider.php
