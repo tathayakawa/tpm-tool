@@ -298,6 +298,6 @@ return [
     |
     */
     'post_migrate' => [
-        'ide-helper:models --write-mixin',
+        'ide-helper:models --write',
     ],
 ];
