@@ -19,6 +19,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.browserSync({
     port: process.env['PORT_BROWSERSYNC'] || 3000,
-    proxy: 'localhost:8080',
+    proxy: 'localhost:8000',
     ui: false,
 });
