@@ -66,11 +66,11 @@
             "[ ! -e vendor/barryvdh/laravel-ide-helper ] || (./artisan config:clear && ./artisan ide-helper:generate)"
         ],
         "post-install-cmd": [
-            "@composer bin all install --ansi",
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || composer bin all install --ansi",
             "./artisan optimize:clear"
         ],
         "post-update-cmd": [
-            "@composer bin all update --ansi",
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || composer bin all update --ansi",
             "./artisan optimize:clear",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
