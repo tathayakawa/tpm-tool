@@ -67,11 +67,11 @@
         ],
         "post-install-cmd": [
             "[ $COMPOSER_DEV_MODE -eq 0 ] || composer bin all install --ansi",
-            "./artisan optimize:clear"
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || php artisan optimize:clear"
         ],
         "post-update-cmd": [
             "[ $COMPOSER_DEV_MODE -eq 0 ] || composer bin all update --ansi",
-            "./artisan optimize:clear",
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || php artisan optimize:clear",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
