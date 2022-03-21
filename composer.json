@@ -62,7 +62,7 @@
             "[ -e  public/storage ] || ./artisan storage:link",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
-            "[ ! -e vendor/barryvdh/laravel-ide-helper ] || (./artisan config:clear && ./artisan ide-helper:generate)"
+            "[ ! -e vendor/barryvdh/laravel-ide-helper ] || (./artisan config:clear && ./artisan ide-helper:generate && ./artisan ide-helper:meta)"
         ],
         "post-install-cmd": [
             "[ $COMPOSER_DEV_MODE -eq 0 ] || composer bin all install --ansi",
