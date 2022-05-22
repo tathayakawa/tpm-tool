@@ -44,7 +44,6 @@
     "/storage/**"
   ],
   "diffEditor.ignoreTrimWhitespace": false,
-  "php.memoryLimit": "512M",
   "php-cs-fixer.allowRisky": false,
   "php-cs-fixer.lastDownload": 0,
   "php-cs-fixer.config": "${workspaceFolder}/.php-cs-fixer.dist.php",
