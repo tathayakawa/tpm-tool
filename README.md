@@ -8,6 +8,7 @@
 ### [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
 
 * *APP_DEBUG* が *true* に設定されている場合、画面の下にデバッグバーが表示されます。
+
 ### [PHPStan](https://github.com/phpstan/phpstan) の導入
 
 * `vendor/bin/phpstan analyze` で静的解析が行われます。
