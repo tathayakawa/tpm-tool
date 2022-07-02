@@ -12,31 +12,31 @@
         "fix:blade": "blade-formatter --w resources/views/**/*.blade.php --wrap 9999 -i 2"
     },
     "dependencies": {
-        "@hkdobrev/run-if-changed": "^0.3.1",
         "axios": "^0.25",
-        "blade-formatter": "^1.13.0",
-        "browser-sync": "^2.27.7",
-        "browser-sync-webpack-plugin": "^2.3.0",
-        "husky": "^8.0",
         "laravel-vite-plugin": "^0.2.1",
-        "lint-staged": "^13.0.3",
         "lodash": "^4.17.19",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.1.14",
-        "prettier": "^2.4.1",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.35.1",
         "sass-loader": "^13.0.0",
-        "stylelint": "^14.1.0",
+        "vite": "^2.9.11"
+    },
+    "devDependencies": {
+        "@hkdobrev/run-if-changed": "^0.3.1",
+        "blade-formatter": "^1.13.0",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "browser-sync": "^2.27.7",
+        "husky": "^8.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.4.1",
         "stylelint-config-prettier": "^9.0.3",
         "stylelint-config-recommended-scss": "^6.0.0",
         "stylelint-config-standard": "^26.0.0",
         "stylelint-order": "^5.0.0",
         "stylelint-prettier": "^2.0.0",
         "stylelint-scss": "^4.0.0",
-        "vite": "^2.9.11"
-    },
-    "devDependencies": {
+        "stylelint": "^14.1.0"
     },
     "lint-staged": {
         "app/**/*.php": "npm run fix:php",
