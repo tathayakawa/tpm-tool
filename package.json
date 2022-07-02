@@ -23,7 +23,6 @@
         "lodash": "^4.17.19",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.1.14",
-        "vite": "^2.9.11",
         "prettier": "^2.4.1",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.35.1",
@@ -34,7 +33,8 @@
         "stylelint-config-standard": "^25.0.0",
         "stylelint-order": "^5.0.0",
         "stylelint-prettier": "^2.0.0",
-        "stylelint-scss": "^4.0.0"
+        "stylelint-scss": "^4.0.0",
+        "vite": "^2.9.11"
     },
     "lint-staged": {
         "app/**/*.php": "npm run fix:php",
