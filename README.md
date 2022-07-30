@@ -47,6 +47,10 @@
 * `composer phpmetrics` でコードのメトリクス解析レポートを生成できます。
   * 結果は *public/docs/phpmetrics/* へ出力されます。
 
+### [PHP Insights](https://github.com/nunomaduro/phpinsights)
+
+* `./artisan insights` でコード品質レポートが表示されます。
+
 ### [husky](https://github.com/typicode/husky) / [run-if-changed](https://www.npmjs.com/package/run-if-changed) によるGiitフック
 
 commit / checkout / merge 等の操作が行われた場合git-hookにより自動的に次の動作が行われます。
