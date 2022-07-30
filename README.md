@@ -32,6 +32,16 @@
 * `vendor/bin/php-cs-fixer fix` でコード整形が行われます。
   * `vendor/bin/php-cs-fixer fix app/Http` 等で特定ディレクトリ配下のみの整形も行えます。
 
+### [ParaTest](https://github.com/paratestphp/paratest)
+
+* `./artisan test -p` で並列化テストを行えます。テストが高速化します。
+
+### [phpunit/php-code-coverage](https://github.com/sebastianbergmann/php-code-coverage)
+
+* `composer coverage` でカバレッジレポートを生成できます。
+  * 結果は *public/docs/coverage/* へ出力されます。
+* 実行には [PCOV](https://github.com/krakjoe/pcov) が必要です。
+
 ### [husky](https://github.com/typicode/husky) / [run-if-changed](https://www.npmjs.com/package/run-if-changed) によるGiitフック
 
 commit / checkout / merge 等の操作が行われた場合git-hookにより自動的に次の動作が行われます。
@@ -42,6 +52,10 @@ commit / checkout / merge 等の操作が行われた場合git-hookにより自�
 
 *何れのツールも開発用途のため **本番環境へのインストールは非推奨** です。*  
 *`composer install --no-dev` / `npm install --prod` を利用してください。*
+
+## オリジナルからの変更点
+
+* `public` ストレージの公開URIが `storage` から `public` へ変更されています。
 
 ---
 
