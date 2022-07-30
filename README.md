@@ -42,6 +42,11 @@
   * 結果は *public/docs/coverage/* へ出力されます。
 * 実行には [PCOV](https://github.com/krakjoe/pcov) が必要です。
 
+### [PhpMetrics](https://github.com/phpmetrics/PhpMetrics)
+
+* `composer phpmetrics` でコードのメトリクス解析レポートを生成できます。
+  * 結果は *public/docs/phpmetrics/* へ出力されます。
+
 ### [husky](https://github.com/typicode/husky) / [run-if-changed](https://www.npmjs.com/package/run-if-changed) によるGiitフック
 
 commit / checkout / merge 等の操作が行われた場合git-hookにより自動的に次の動作が行われます。
