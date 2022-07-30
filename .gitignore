@@ -19,7 +19,7 @@ yarn-error.log
 /.phpstorm.meta.php
 /.php-cs-fixer.cache
 
-public/coverage
+public/docs/
 public/public
 public/mix-manifest.json
 public/css/app.css
