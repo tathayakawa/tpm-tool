@@ -1,10 +1,12 @@
-## Laravel カスタマイズ
+# Laravel カスタマイズ
+
+## 追加パッケージ
 
 ### [Laravel Dump Server](https://github.com/beyondcode/laravel-dump-server)
 
 * `./artisan dump-server` を実行すると `dump()` の結果が画面ではなくコンソールへ出力されます。
 
-### [Laravel IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper) の導入
+### [Laravel IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper)
 
 * FacadeやEloquent動的プロパティのコード補完に対応しています。
 * `composer dump-autoload` / `composer install` を実行する度に最新のコード補完情報が生成されます。
@@ -14,22 +16,23 @@
 
 * *APP_DEBUG* が *true* に設定されている場合、画面の下にデバッグバーが表示されます。
 
-### [PHPStan](https://github.com/phpstan/phpstan) の導入
+### [PHPStan](https://github.com/phpstan/phpstan)
 
 * `vendor/bin/phpstan analyze` で静的解析が行われます。
   phpstan の Laravel 非対応による既知のエラーは予め除外してあります。
 
-### [phpunit-watcher](https://github.com/spatie/phpunit-watcher) の導入
+### [phpunit-watcher](https://github.com/spatie/phpunit-watcher)
 
 * `vendor/bin/phpunit-watcher watch` でコード変更を監視し自動テストを実行できます。
+  * `vendor/bin/phpunit-watcher watch tests/FILENAME` で特定テストのみの監視も行えます。
 * Laravel のディレクトリ構成に応じて監視ディレクトリをカスタマイズ済です。
 
-### [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) の導入
+### [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
-* php-cs-fixer によるコード整形が行われます。
-    `vendor/bin/php-cs-fixer fix app/Http/Controllers` 等で特定ディレクトリ配下のコード整形を行います。
+* `vendor/bin/php-cs-fixer fix` でコード整形が行われます。
+  * `vendor/bin/php-cs-fixer fix app/Http` 等で特定ディレクトリ配下のみの整形も行えます。
 
-### [husky](https://github.com/typicode/husky) / [run-if-changed](https://www.npmjs.com/package/run-if-changed) によるcommitフック
+### [husky](https://github.com/typicode/husky) / [run-if-changed](https://www.npmjs.com/package/run-if-changed) によるGiitフック
 
 commit / checkout / merge 等の操作が行われた場合git-hookにより自動的に次の動作が行われます。
 
@@ -37,7 +40,7 @@ commit / checkout / merge 等の操作が行われた場合git-hookにより自�
 * package-lock.json が変更された場合 `npm install`
 * composer.lock が変更された場合 `composer install`
 
-*既存の動作に影響を与える可能性があるため **本番環境へのインストールは非推奨** です。*
+*何れのツールも開発用途のため **本番環境へのインストールは非推奨** です。*  
 *`composer install --no-dev` / `npm install --prod` を利用してください。*
 
 ---
