@@ -1,4 +1,9 @@
 ## Laravel カスタマイズ
+
+### [Laravel Dump Server](https://github.com/beyondcode/laravel-dump-server)
+
+* `./artisan dump-server` を実行すると `dump()` の結果が画面ではなくコンソールへ出力されます。
+
 ### [Laravel IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper) の導入
 
 * FacadeやEloquent動的プロパティのコード補完に対応しています。
