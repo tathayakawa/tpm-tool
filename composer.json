@@ -57,7 +57,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "test": "phpunit",
+        "test": "@php artisan test -p",
         "coverage": "php -d pcov.enabled vendor/bin/phpunit --coverage-html public/docs/coverage tests",
         "phpmetrics": "phpmetrics --report-html=public/docs/phpmetrics/ app",
         "phpstan": "phpstan analyze",
