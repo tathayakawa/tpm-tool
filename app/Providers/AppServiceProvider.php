@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Barryvdh\Debugbar\ServiceProvider as DebugbarServiceProvider;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (!$this->app->runningInConsole() && config('app.debug') && 'local' === config('app.env')) {
+            $this->app->register(DebugbarServiceProvider::class);
+        }
     }
 
     /**
