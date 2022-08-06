@@ -62,6 +62,10 @@ commit / checkout / merge 等の操作が行われた場合git-hookにより自�
 *何れのツールも開発用途のため **本番環境へのインストールは非推奨** です。*  
 *`composer install --no-dev` / `npm install --prod` を利用してください。*
 
+### [direnv](https://github.com/direnv/direnv) によるローカル（非Docker）環境での開発
+
+* `cp .envrc.example .envrc` で設定される環境変数でローカル環境のphpのみで動作します。
+
 ## オリジナルからの変更点
 
 * `public` ストレージの公開URIが `storage` から `public` へ変更されています。
