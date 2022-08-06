@@ -41,7 +41,7 @@
     },
     "scripts": {
         "test": "@php artisan test -p",
-        "coverage": "php -d pcov.enabled vendor/bin/phpunit --coverage-html public/docs/coverage tests",
+        "coverage": "@php -d pcov.enabled vendor/bin/phpunit --coverage-html public/docs/coverage tests",
         "phpmetrics": "phpmetrics --report-html=public/docs/phpmetrics/ app",
         "phpstan": "phpstan analyze",
         "watch": "phpunit-watcher watch",
