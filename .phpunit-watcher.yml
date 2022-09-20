@@ -2,6 +2,9 @@ watch:
   directories:
     - app
     - config
+    - database/factories
+    - database/migrations
+    - database/seeders
     - resources/views
     - routes
     - tests
