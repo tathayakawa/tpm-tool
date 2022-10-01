@@ -14,9 +14,16 @@ parameters:
     - app/Http/Middleware/Authenticate.php
   ignoreErrors:
     -
-      message: '#has no return typehint specified#'
+      message: '#has no return type(hint)? specified#'
       paths:
         - tests
-        - app/Models
+    - '#Access to undefined constant Illuminate\\Http\\Request::(.+?)#'
+    - '#Call to an undefined method Illuminate\\Contracts\\Auth\\Guard::(.+?)#'
+    - '#Call to an undefined method Illuminate\\Http\\Request::(.+?)#'
+    - '#Call to an undefined static method Illuminate\\Support\\Arr::#'
+    - '#Call to an undefined static method Illuminate\\Support\\Facades\\#'
+    - '#Call to an undefined static method Illuminate\\Support\\Js::#'
+    - '#Call to an undefined static method Illuminate\\Support\\Str::#'
+
   reportUnmatchedIgnoredErrors: false
   checkMissingIterableValueType: false
