@@ -2,9 +2,6 @@ name: Tests
 
 on:
   push:
-    branches:
-      - master
-      - '*.x'
   pull_request:
 
 permissions:
@@ -12,7 +9,24 @@ permissions:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    name: "node:${{ matrix.node-version }} php:${{ matrix.php-version }} ${{ matrix.os }}"
+    strategy:
+      matrix:
+        node-version:
+          - 16
+          - 18
+        php-version:
+          - "8.1"
+        os:
+          - "ubuntu-18.04"
+          - "ubuntu-20.04"
+          - "ubuntu-22.04"
+        exclude:
+          - os: ubuntu-18.04
+            node-version: 18
+          - os: ubuntu-20.04
+            node-version: 18
 
     steps:
       - name: Checkout code
@@ -21,7 +35,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: ${{ matrix.php-version }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
@@ -36,3 +50,17 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
+
+      ##
+
+      - run:  ./artisan config:cache
+      - run:  ./artisan route:cache
+      - run:  ./artisan schedule:list
+      - run:  ./artisan event:cache
+      - run:  ./artisan view:cache
+      - name: setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install --production
+      - run: npm run build
