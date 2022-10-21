@@ -53,6 +53,7 @@ jobs:
 
       ##
 
+      - run: ./artisan ide-helper:generate
       - run: vendor/bin/phpstan
       - run: ./artisan config:cache
       - run: ./artisan route:cache
