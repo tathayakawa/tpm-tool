@@ -53,6 +53,7 @@ jobs:
 
       ##
 
+      - run: vendor/bin/phpstan
       - run:  ./artisan config:cache
       - run:  ./artisan route:cache
       - run:  ./artisan schedule:list
