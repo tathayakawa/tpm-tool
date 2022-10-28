@@ -6,6 +6,7 @@
 /vendor
 .env
 .env.backup
+.env.production
 .envrc
 .phpunit.result.cache
 Homestead.json
@@ -13,6 +14,7 @@ Homestead.yaml
 auth.json
 npm-debug.log
 yarn-error.log
+/.fleet
 /.idea
 
 /_ide_helper.php
