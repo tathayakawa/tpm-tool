@@ -52,6 +52,7 @@ jobs:
       - run: ./artisan schedule:list
       - run: ./artisan event:cache
       - run: ./artisan view:cache
+      - run: ./artisan model:prune
       - name: setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
