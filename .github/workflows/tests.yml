@@ -47,12 +47,13 @@ jobs:
 
       - run: ./artisan ide-helper:generate
       - run: vendor/bin/phpstan
+      - run: DB_CONNECTION=sqlite ./artisan migrate --force
+      - run: DB_CONNECTION=sqlite ./artisan model:prune
       - run: ./artisan config:cache
       - run: ./artisan route:cache
       - run: ./artisan schedule:list
       - run: ./artisan event:cache
       - run: ./artisan view:cache
-      - run: ./artisan model:prune
       - name: setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
