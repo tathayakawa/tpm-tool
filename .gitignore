@@ -21,6 +21,7 @@ yarn-error.log
 /_ide_helper_models.php
 /.phpstorm.meta.php
 /.php-cs-fixer.cache
+/tmp/
 
 public/docs/
 public/public
