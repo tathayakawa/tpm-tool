@@ -1,3 +1,77 @@
+# Laravel カスタマイズ
+
+## 追加パッケージ
+
+### [Laravel Dump Server](https://github.com/beyondcode/laravel-dump-server)
+
+* `./artisan dump-server` を実行すると `dump()` の結果が画面ではなくコンソールへ出力されます。
+
+### [Laravel IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper)
+
+* FacadeやEloquent動的プロパティのコード補完に対応しています。
+* `composer dump-autoload` / `composer install` を実行する度に最新のコード補完情報が生成されます。
+* `./artisan migrate` を実行する度にEloquentモデルの補完情報が自動的に生成されます。
+
+### [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
+
+* *APP_DEBUG* が *true* に設定されている場合、画面の下にデバッグバーが表示されます。
+
+### [PHPStan](https://github.com/phpstan/phpstan)
+
+* `vendor/bin/phpstan analyze` で静的解析が行われます。
+  phpstan の Laravel 非対応による既知のエラーは予め除外してあります。
+
+### [phpunit-watcher](https://github.com/spatie/phpunit-watcher)
+
+* `vendor/bin/phpunit-watcher watch` でコード変更を監視し自動テストを実行できます。
+  * `vendor/bin/phpunit-watcher watch tests/FILENAME` で特定テストのみの監視も行えます。
+* Laravel のディレクトリ構成に応じて監視ディレクトリをカスタマイズ済です。
+
+### [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+
+* `vendor/bin/php-cs-fixer fix` でコード整形が行われます。
+  * `vendor/bin/php-cs-fixer fix app/Http` 等で特定ディレクトリ配下のみの整形も行えます。
+
+### [ParaTest](https://github.com/paratestphp/paratest)
+
+* `./artisan test -p` で並列化テストを行えます。テストが高速化します。
+
+### [phpunit/php-code-coverage](https://github.com/sebastianbergmann/php-code-coverage)
+
+* `composer coverage` でカバレッジレポートを生成できます。
+  * 結果は *public/docs/coverage/* へ出力されます。
+* 実行には [PCOV](https://github.com/krakjoe/pcov) が必要です。
+
+### [PhpMetrics](https://github.com/phpmetrics/PhpMetrics)
+
+* `composer phpmetrics` でコードのメトリクス解析レポートを生成できます。
+  * 結果は *public/docs/phpmetrics/* へ出力されます。
+
+### [PHP Insights](https://github.com/nunomaduro/phpinsights)
+
+* `./artisan insights` でコード品質レポートが表示されます。
+
+### [husky](https://github.com/typicode/husky) / [run-if-changed](https://www.npmjs.com/package/run-if-changed) によるGiitフック
+
+commit / checkout / merge 等の操作が行われた場合git-hookにより自動的に次の動作が行われます。
+
+* 最適化情報のクリア `./artisan optimize:clear`
+* package-lock.json が変更された場合 `npm install`
+* composer.lock が変更された場合 `composer install`
+
+*何れのツールも開発用途のため **本番環境へのインストールは非推奨** です。*  
+*`composer install --no-dev` / `npm install --prod` を利用してください。*
+
+### [direnv](https://github.com/direnv/direnv) によるローカル（非Docker）環境での開発
+
+* `cp .envrc.example .envrc` で設定される環境変数でローカル環境のphpのみで動作します。
+
+## オリジナルからの変更点
+
+* `public` ストレージの公開URIが `storage` から `public` へ変更されています。
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

@@ -2,26 +2,23 @@ name: Tests
 
 on:
   push:
-    branches:
-      - master
-      - '*.x'
   pull_request:
-  schedule:
-    - cron: '0 0 * * *'
 
 permissions:
   contents: read
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    name: "node:${{ matrix.node }} php:${{ matrix.php }} ${{ matrix.os }}"
     strategy:
       fail-fast: true
       matrix:
-        php: [8.1, 8.2]
-
-    name: PHP ${{ matrix.php }}
+        node:
+          - 18
+        php: [8.2]
+        os:
+          - "ubuntu-22.04"
 
     steps:
       - name: Checkout code
@@ -44,4 +41,22 @@ jobs:
         run: php artisan key:generate
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: ./artisan test -p -v
+
+      ##
+
+      - run: ./artisan ide-helper:generate
+      - run: vendor/bin/phpstan
+      - run: DB_CONNECTION=sqlite ./artisan migrate --force
+      - run: DB_CONNECTION=sqlite ./artisan model:prune
+      - run: ./artisan config:cache
+      - run: ./artisan route:cache
+      - run: ./artisan schedule:list
+      - run: ./artisan event:cache
+      - run: ./artisan view:cache
+      - name: setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install --production
+      - run: npm run build

@@ -8,6 +8,7 @@
 .env
 .env.backup
 .env.production
+.envrc
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -16,4 +17,18 @@ npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
-/.vscode
+
+/_ide_helper.php
+/_ide_helper_models.php
+/.phpstorm.meta.php
+/.php-cs-fixer.cache
+/tmp/
+
+public/docs/
+public/public
+public/mix-manifest.json
+public/css/app.css
+public/css/app.css.map
+public/js/app.js
+public/js/app.js.map
+public/js/app.js.LICENSE.txt
